@@ -9,11 +9,9 @@ To build and run the program, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone <repository_url>
-   cd ConsumingRest
+   git clone https://github.com/savvyngn/consuming-rest.git
+   cd consuming-rest
    ```
-
-   <button onclick="copyCommand('git clone <repository_url>')">Copy</button>
 
 2. Ensure you have Maven and Docker installed on your system.
 
@@ -23,23 +21,17 @@ To build and run the program, follow these steps:
    docker build -t <docker_username>/consumingrest .
    ```
 
-   <button onclick="copyCommand('docker build -t <docker_username>/consumingrest .')">Copy</button>
-
 4. Push the Docker image to your Docker Hub repository (optional):
 
    ```bash
    docker push <docker_username>/consumingrest
    ```
 
-   <button onclick="copyCommand('docker push <docker_username>/consumingrest')">Copy</button>
-
 5. Deploy the program on Kubernetes:
 
    ```bash
    kubectl run consumingrest --image=<docker_username>/consumingrest --env="quoters_base_url=http://quoters:8080"
    ```
-
-   <button onclick="copyCommand('kubectl run consumingrest --image=<docker_username>/consumingrest --env=\"quoters_base_url=http://quoters:8080\"')">Copy</button>
 
 ## Usage
 
@@ -70,15 +62,3 @@ This repository includes the following files:
 - `.gitignore`: Specifies intentionally untracked files to ignore.
 - `pom.xml`: Maven project object model file specifying dependencies and build configuration.
 - `application.properties`: Contains application properties, including the base URL for the Quoters service.
-
-
-<script>
-function copyCommand(command) {
-  var textarea = document.createElement('textarea');
-  textarea.value = command;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-  alert('Copied to clipboard: ' + command);
-}
